@@ -157,11 +157,11 @@ class HetAgg(nn.Module):
 				v_neigh_batch[i] = self.v_neigh_list_train[2][id_batch[i]]
 
 		a_neigh_batch = np.reshape(a_neigh_batch, (1, -1))
-		a_agg_batch = self.node_neigh_agg(a_neigh_batch, 1)
+		a_agg_batch = self.node_neigh_agg(a_neigh_batch, 1)     #通过rnn聚合节点邻居节点是a的embedding向量
 		p_neigh_batch = np.reshape(p_neigh_batch, (1, -1))
-		p_agg_batch = self.node_neigh_agg(p_neigh_batch, 2)
+		p_agg_batch = self.node_neigh_agg(p_neigh_batch, 2)     #通过rnn聚合节点邻居节点是p的embedding向量
 		v_neigh_batch = np.reshape(v_neigh_batch, (1, -1))
-		v_agg_batch = self.node_neigh_agg(v_neigh_batch, 3)
+		v_agg_batch = self.node_neigh_agg(v_neigh_batch, 3)     #通过rnn聚合节点邻居节点是v的embedding向量
 
 		#attention module
 		id_batch = np.reshape(id_batch, (1, -1))
