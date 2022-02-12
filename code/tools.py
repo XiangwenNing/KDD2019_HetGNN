@@ -311,7 +311,7 @@ class HetAgg(nn.Module):
 
 	def forward(self, triple_list_batch, triple_index):
 		c_out, p_out, n_out = self.aggregate_all(triple_list_batch, triple_index)    #triple_list_batch是三元组，表示中心词，邻居和negative
-		return c_out, p_out, n_out
+		return c_out, p_out, n_out              #triple_index是中心词和邻居的节点类型的组合，共9种（所以index从0到8）。节点类型有3种，所以3*3=9种
 
 
 def cross_entropy_loss(c_embed_batch, pos_embed_batch, neg_embed_batch, embed_d):
