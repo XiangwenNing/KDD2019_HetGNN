@@ -143,10 +143,10 @@ class HetAgg(nn.Module):
 		p_neigh_batch = [[0] * 10] * len(id_batch)
 		v_neigh_batch = [[0] * 3] * len(id_batch)
 		for i in range(len(id_batch)):
-			if node_type == 1:
-				a_neigh_batch[i] = self.a_neigh_list_train[0][id_batch[i]]
-				p_neigh_batch[i] = self.a_neigh_list_train[1][id_batch[i]]
-				v_neigh_batch[i] = self.a_neigh_list_train[2][id_batch[i]]
+			if node_type == 1:                  #节点类型是1
+				a_neigh_batch[i] = self.a_neigh_list_train[0][id_batch[i]]       #节点邻居中type为a的邻居
+				p_neigh_batch[i] = self.a_neigh_list_train[1][id_batch[i]]       #节点邻居中type为P的邻居
+				v_neigh_batch[i] = self.a_neigh_list_train[2][id_batch[i]].      #节点邻居中type为v的邻居
 			elif node_type == 2:
 				a_neigh_batch[i] = self.p_neigh_list_train[0][id_batch[i]]
 				p_neigh_batch[i] = self.p_neigh_list_train[1][id_batch[i]]
