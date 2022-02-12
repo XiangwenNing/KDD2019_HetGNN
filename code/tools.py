@@ -310,7 +310,7 @@ class HetAgg(nn.Module):
 
 
 	def forward(self, triple_list_batch, triple_index):
-		c_out, p_out, n_out = self.aggregate_all(triple_list_batch, triple_index)
+		c_out, p_out, n_out = self.aggregate_all(triple_list_batch, triple_index)    #triple_list_batch是三元组，表示中心词，邻居和negative
 		return c_out, p_out, n_out
 
 
