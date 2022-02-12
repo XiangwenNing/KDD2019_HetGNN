@@ -121,10 +121,10 @@ class HetAgg(nn.Module):
 			#print (len(id_batch[0]))
 			batch_s = int(len(id_batch[0]) / 3)
 
-		if node_type == 1:
-			neigh_agg = self.a_content_agg(id_batch).view(batch_s, 10, embed_d)
-			neigh_agg = torch.transpose(neigh_agg, 0, 1)
-			all_state, last_state  = self.a_neigh_rnn(neigh_agg)
+		if node_type == 1:           #处理邻居节点中type为1的节点
+			neigh_agg = self.a_content_agg(id_batch).view(batch_s, 10, embed_d)   #获取邻居节点中type为1的节点（10个）的embedding
+			neigh_agg = torch.transpose(neigh_agg, 0, 1)                       
+			all_state, last_state  = self.a_neigh_rnn(neigh_agg)                  #通过rnn将邻居节点中type为1的节点变成一个embedding
 		elif node_type == 2:
 			neigh_agg = self.p_content_agg(id_batch).view(batch_s, 10, embed_d)
 			neigh_agg = torch.transpose(neigh_agg, 0, 1)
